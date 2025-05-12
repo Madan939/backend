@@ -1,0 +1,10 @@
+const express=require("express");
+const productcontroller=require("../controller/ProductController");
+const router=express.Router();
+const upload=require("../middleware/FileUpload");
+router.post("/addproduct",upload.single('image'),productcontroller.addproduct);
+router.get("/getproduct",productcontroller.getproduct);
+router.get("/editproduct/:_id",productcontroller.editproduct);
+router.post("/updateproduct",upload.single('image'),productcontroller.updateproduct);
+router.post("/deleteproduct/:id",productcontroller.deleteproduct);
+module.exports=router;
